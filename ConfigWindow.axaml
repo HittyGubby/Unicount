@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="Unicount.ConfigWindow"
+        CanResize="False"
+        ShowInTaskbar="True"
+        Background="#ff333333"
+        Height="450" Width="512"
+        Title="Configuration">
+    <Grid>
+        <StackPanel Margin="10">
+            <ToggleSwitch x:Name="TextBlockMainBtn" Content="Show Main" FontWeight="UltraBold"/>
+            <ToggleSwitch x:Name="TextBlockMsBtn" Content="Show Milliseconds" />
+            <ToggleSwitch x:Name="TextBlockSecsBtn" Content="Show Seconds" />
+            <ToggleSwitch x:Name="TextBlockMinsBtn" Content="Show Minutes" />
+            <ToggleSwitch x:Name="TextBlockHoursBtn" Content="Show Hours" />
+            <ToggleSwitch x:Name="TextBlockDaysBtn" Content="Show Days" />
+            <ToggleSwitch x:Name="TextBlockYearsBtn" Content="Show Years" />
+        </StackPanel>
+        <StackPanel Margin="150,10,10,10">
+            <ToggleSwitch x:Name="TextBlockDualBtn" Content="Show Dual" FontWeight="UltraBold" />
+            <ToggleSwitch x:Name="TextBlockMsDualBtn" Content="Show Milliseconds" />
+            <ToggleSwitch x:Name="TextBlockSecsDualBtn" Content="Show Seconds" />
+            <ToggleSwitch x:Name="TextBlockMinsDualBtn" Content="Show Minutes" />
+            <ToggleSwitch x:Name="TextBlockHoursDualBtn" Content="Show Hours" />
+            <ToggleSwitch x:Name="TextBlockDaysDualBtn" Content="Show Days" />
+            <ToggleSwitch x:Name="TextBlockYearsDualBtn" Content="Show Years" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+            <Button x:Name="OkButton" Content="Apply" Margin="10" />
+        </StackPanel>
+    </Grid>
+</Window>
