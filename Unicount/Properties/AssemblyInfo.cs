@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CEE Countdown")]
-[assembly: AssemblyDescription("CEE Countdown, made by Mr.Anonymous")]
+[assembly: AssemblyTitle("Unicount")]
+[assembly: AssemblyDescription("Unicount, by Mr.Anonymous")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mr.Anonymous")]
-[assembly: AssemblyProduct("CEE Countdown")]
-[assembly: AssemblyCopyright("Copyright Mr.Anonymous 2025")]
+[assembly: AssemblyProduct("Unicount")]
+[assembly: AssemblyCopyright("PasteWrong Mr.Anonymous 45**2")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

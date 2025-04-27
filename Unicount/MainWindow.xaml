@@ -1,9 +1,9 @@
-﻿<Window x:Class="GaokaoCountdown.MainWindow"
+﻿<Window x:Class="Unicount.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GaokaoCountdown"
+        xmlns:local="clr-namespace:Unicount"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -15,12 +15,11 @@
         Title="CEE Countdown by Mr.Anonymous"
         ShowInTaskbar="False">
     <Grid MouseMove="Grid_MouseMove">
-        <ProgressBar Margin="0,0,0,80" x:Name="ProgbarYear" Height="20" Maximum="366"/>
-        <ProgressBar Margin="0,20,0,60" x:Name="ProgbarDay" Height="20" Maximum="24" Foreground="{Binding Foreground, ElementName=ProgbarYear}"/>
-        <ProgressBar Margin="0,40,0,40" x:Name="ProgbarHour" Height="20" Maximum="60" Foreground="{Binding Foreground, ElementName=ProgbarYear}"/>
-        <ProgressBar Margin="0,60,0,20" x:Name="ProgbarMin" Height="20" Maximum="60" Foreground="{Binding Foreground, ElementName=ProgbarYear}"/>
-        <ProgressBar Margin="0,80,0,0" x:Name="ProgbarSec" Height="20" Maximum="1000" Foreground="{Binding Foreground, ElementName=ProgbarYear}"/>
-        <Rectangle Fill="#99000000" Height="100"/>
+        <ProgressBar Margin="0,0,0,80" x:Name="ProgbarYear" Height="20" Maximum="366" Opacity="0.5" Background="#aa000000"/>
+        <ProgressBar Margin="0,20,0,60" x:Name="ProgbarDay" Height="20" Maximum="24" Foreground="{Binding Foreground, ElementName=ProgbarYear}" Opacity="0.5" Background="#aa000000"/>
+        <ProgressBar Margin="0,40,0,40" x:Name="ProgbarHour" Height="20" Maximum="60" Foreground="{Binding Foreground, ElementName=ProgbarYear}" Opacity="0.5" Background="#aa000000"/>
+        <ProgressBar Margin="0,60,0,20" x:Name="ProgbarMin" Height="20" Maximum="60" Foreground="{Binding Foreground, ElementName=ProgbarYear}" Opacity="0.5" Background="#aa000000"/>
+        <ProgressBar Margin="0,80,0,0" x:Name="ProgbarSec" Height="20" Maximum="1000" Foreground="{Binding Foreground, ElementName=ProgbarYear}" Opacity="0.5" Background="#aa000000" IsIndeterminate="True"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,-2,0,0">
             <TextBlock x:Name="Title"
                        HorizontalAlignment="Center"
@@ -32,18 +31,18 @@
                     <DropShadowEffect/>
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="Days"
-                       Margin="20,-5,0,0"
+            <StackPanel Orientation="Vertical" Margin="20,-5,0,0">
+                <TextBlock x:Name="Days"
                        Foreground="#36b161"
-                       Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="Resources/#Cascadia Mono Bold"
                        FontSize="80"
                        Text="100">
-                <TextBlock.Effect>
-                    <DropShadowEffect/>
-                </TextBlock.Effect>
-            </TextBlock>
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
             <TextBlock Background="Transparent"
                        HorizontalAlignment="Center"
                        FontFamily="Microsoft YaHei UI"
@@ -55,18 +54,18 @@
                     <DropShadowEffect/>
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="Hours"
-                       Margin="20,-5,0,0"
+            <StackPanel Orientation="Vertical" Margin="20,-5,0,0">
+                <TextBlock x:Name="Hours"
                        Foreground="{Binding Foreground, ElementName=Days}"
-                       Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        FontSize="80"
                        Text="00">
-                <TextBlock.Effect>
-                    <DropShadowEffect/>
-                </TextBlock.Effect>
-            </TextBlock>
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
             <TextBlock Background="Transparent"
                        HorizontalAlignment="Center"
                        Foreground="#ffffff"
@@ -78,18 +77,19 @@
                     <DropShadowEffect/>
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="Mins"
-                       Margin="20,-5,0,0"
+            <StackPanel Orientation="Vertical" Margin="20,-5,0,0">
+                <TextBlock x:Name="Mins"
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        FontSize="80"
                        Text="00">
-                <TextBlock.Effect>
-                    <DropShadowEffect/>
-                </TextBlock.Effect>
-            </TextBlock>
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
             <TextBlock Background="Transparent"
                        HorizontalAlignment="Center"
                        FontFamily="Microsoft YaHei UI"
@@ -101,24 +101,25 @@
                     <DropShadowEffect/>
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock x:Name="Secs"
-                       Margin="20,-5,0,0"
+            <StackPanel Orientation="Vertical" Margin="20,-5,0,0">
+                <TextBlock x:Name="Secs"
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        FontSize="80"
                        Text="00">
-                <TextBlock.Effect>
-                    <DropShadowEffect/>
-                </TextBlock.Effect>
-            </TextBlock>
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
             <TextBlock x:Name="Millisecs"
                        Margin="20,5,0,0"
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        VerticalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        FontSize="40"
                        Text="000">
                 <TextBlock.Effect>
@@ -155,7 +156,7 @@
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        VerticalAlignment="Bottom"
                        FontSize="24"
                        Text="{Binding Text, ElementName=Days}">
@@ -179,7 +180,7 @@
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        VerticalAlignment="Bottom"
                        FontSize="24"
                        Text="{Binding Text, ElementName=Hours}">
@@ -203,7 +204,7 @@
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        VerticalAlignment="Bottom"
                        FontSize="24"
                        Text="{Binding Text, ElementName=Mins}">
@@ -227,7 +228,7 @@
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
                        HorizontalAlignment="Center"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        VerticalAlignment="Bottom"
                        FontSize="24"
                        Text="{Binding Text, ElementName=Secs}">
@@ -238,7 +239,7 @@
             <TextBlock Margin="10,14,0,0"
                        Foreground="{Binding Foreground, ElementName=Days}"
                        Background="Transparent"
-                       FontFamily="#Cascadia Mono Bold"
+                       FontFamily="{Binding FontFamily, ElementName=Days}"
                        FontSize="14"
                        Text="{Binding Text, ElementName=Millisecs}">
                 <TextBlock.Effect>
